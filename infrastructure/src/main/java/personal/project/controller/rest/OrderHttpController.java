@@ -18,10 +18,16 @@ public class OrderHttpController {
     @Autowired
     private OrderUseCase orderUseCase;
 
-    @GetMapping("/{id}")
-    public String getId(@PathVariable String id) {
-        log.info("Receive request to list orders");
-        boolean isExist = orderUseCase.existOrder(id);
+    @GetMapping("/{id}/{userId}")
+    public String getId(@PathVariable String id, @PathVariable String userId) {
+        log.info("Receive request to get order");
+        boolean isExist = orderUseCase.existOrder(id, userId);
         return isExist ? "Order found" : "Order not found";
+    }
+
+    @GetMapping("/create/{userId}")
+    public String getId(@PathVariable String userId) {
+        log.info("Receive request to create order");
+        return orderUseCase.createOrder(userId);
     }
 }
