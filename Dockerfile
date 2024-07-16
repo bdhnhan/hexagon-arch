@@ -15,4 +15,4 @@ ENV JAVA_OPTS="-Dspring.profiles.active=local -Dspring.config.location=local.yam
 
 # Run the application
 #CMD ["java $JAVA_OPTS", "-jar", "infrastructure-0.0.1.jar"]
-CMD ["sh", "-c", "java $JAVA_OPTS -jar infrastructure-0.0.1.jar"]
+CMD ["sh", "-c", "java $JAVA_OPTS -jar hexagon-arch.jar"]
